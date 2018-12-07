@@ -33,8 +33,10 @@
 								<h:graphicImage name="img/icone-login.png" library="assets"
 									styleClass="img-responsive img-grey" />
 							</div>
-							<div class="col-md-9">
-								<h3 class="branco">Orago</h3>
+							<div class="col-md-9" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+								<h4 class="branco" style="margin-bottom: 0;">Formentin &amp; Darella </h4>
+								<h3 class="branco" style="margin-top: 0;">Advocacia</h3>
+								
 
 							</div>
 						</div>
@@ -45,12 +47,12 @@
 
 						<h:form id="frmLogin">
 							<br />
-							<div style="margin-bottom: 10px">
+							<div style="height: 31px; margin-bottom: 10px">
 								<p:inputText maxlength="20" size="20" value="#{loginBack.login}"
-									styleClass="col-md-12" />
+									placeholder="Login" styleClass="col-md-12" />
 								</div>
-								<br />
-								<div>
+								
+								<div style="height: 31px; margin-bottom: 10px">
 								<p:password maxlength="20" size="20" value="#{loginBack.senha}"
 									placeholder="Password" styleClass="col-md-12" />
 									</div>
