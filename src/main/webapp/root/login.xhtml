@@ -31,7 +31,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<h:graphicImage name="img/icone-login.png" library="assets"
-									styleClass="img-responsive" />
+									styleClass="img-responsive img-grey" />
 							</div>
 							<div class="col-md-9">
 								<h3 class="branco">Orago</h3>
@@ -45,16 +45,15 @@
 
 						<h:form id="frmLogin">
 							<br />
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="fa fa-tag"></i></span>
+							<div style="margin-bottom: 10px">
 								<p:inputText maxlength="20" size="20" value="#{loginBack.login}"
 									styleClass="col-md-12" />
-							</div>
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								</div>
+								<br />
+								<div>
 								<p:password maxlength="20" size="20" value="#{loginBack.senha}"
 									placeholder="Password" styleClass="col-md-12" />
-							</div>
+									</div>
 							<div class="form-group">
 								<label class="checkbox-inline"> <input type="checkbox" />
 									Lembrar-me
@@ -78,9 +77,10 @@
 
 	<h:outputStylesheet name="css/bootstrap.css" library="assets" />
 	<h:outputStylesheet name="css/font-awesome.css" library="assets" />
+	<h:outputStylesheet name="css/custom.css" library="assets" />
 
 </h:body>
-
+	
 </html>
 
 

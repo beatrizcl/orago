@@ -43,10 +43,6 @@
 			            <f:selectItems value="#{processoBack.advogadoList}" var="advogado" itemValue="#{advogado}" itemLabel="#{advogado.nmadvogado}" />
      			   </p:selectOneMenu>
      			   
-     			   <p:outputLabel  value="Imagem" />
-					<p:fileUpload auto="true" id="fileUp" mode="advanced"
-					fileUploadListener="#{evidenciaBack.upload}"  />
-     			   
 					<p:commandButton value="Cadastrar" actionListener="#{processoBack.cadastra}"  update="msg frmTblProcesso" onclick="PF('popupcadprocessos').hide();" />
 					<p:commandButton value="Cancelar" type="button" onclick="PF('popupcadprocessos').hide();" />
 				</h:panelGrid>

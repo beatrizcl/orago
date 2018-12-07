@@ -1,6 +1,26 @@
 
-body {
+html, body {
     font-family: 'Open Sans', sans-serif;
+    height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #b8b8b8 !important;
+}
+
+a {
+	color: #b6b6b6;
+}
+
+a:hover {
+	color: #b6b6b6;
+}
+
+.img-grey{
+	filter: grayscale(40%);
 }
 
  #wrapper {
@@ -44,7 +64,6 @@ element.style {
 	background-position:center;
 	background-color:#282E3A;
 	background-repeat:no-repeat;
-	height:auto;
 }
 
 h2 {
@@ -78,10 +97,23 @@ p {
 /*==============================================
    DASHBOARD STYLES    
     =============================================*/
-.panel-back {
-    background-color:#F8F8F8;
-
+.panel{
+	background-color:#7c777726 !important;
 }
+
+.btn-success {
+	color: #ffffffb3;
+    background-color: #00000000;
+    border-color: #ffffff7a;
+}
+
+.btn-success:hover {
+	color: #ffffffb3;
+    background-color: #d2d5d252;
+    border-color: #ffffff7a;
+}
+
+
    .noti-box {
 min-height: 100px;
 padding: 20px;
@@ -398,8 +430,12 @@ line-height: 1.428571429;
    
 }
 
+.panel-default > .panel-heading {
+	border-color: #dddddd80 !important;
+}
+
 .heading-login{
-	background-color: #282E3A !important;
+	background-color: #00000000 !important;
 }
 
 /* Utilidades */
@@ -417,5 +453,5 @@ line-height: 1.428571429;
 }
 
 .branco{
-	color: #fff;
+	color: #ffffffb3;
 }
