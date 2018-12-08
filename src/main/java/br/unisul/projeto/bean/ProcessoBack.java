@@ -14,6 +14,8 @@ import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import org.omnifaces.util.Messages;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 import br.unisul.projeto.dao.AdvogadoDao;
 import br.unisul.projeto.dao.ClienteDao;
@@ -37,14 +39,17 @@ public class ProcessoBack {
 	
 	public void cadastra() {
 		ProcessoDao dao = new ProcessoDao();
-//		Processo userImg = dao.salvar(domain);
-//		Path origem = Paths.get(domain.getPathTemp());
-//		Path destino = Paths.get("C://Users/ART3MIS/Documents/evidencias/"+ userImg.getCd() +".png");
-//		try {
-//			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
-//		} catch (Exception e) {
-//			Messages.addGlobalInfo("Erro");
-//		}
+		Processo userImg = dao.salvar(domain);
+
+		Path origem = Paths.get(domain.getPathTemp());
+		Path destino = Paths.get("C:/Users/ART3MIS/Documents/ProjetoAdvocacia/evidencias/"
+				+ userImg.getCd() + ".png");
+		try {
+			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
+		} catch (Exception e) {
+			Messages.addGlobalInfo("Erro");
+		}
+
 		dao.salvar(domain);
 		domain = new Processo();
 		listar();
@@ -107,6 +112,29 @@ public class ProcessoBack {
 			e.printStackTrace();
 		}
 	}
+	
+	public void edita(ActionEvent evt) {
+		ProcessoDao dao = new ProcessoDao();
+		dao.alterar(domain);
+	}
+	
+	public void upload(FileUploadEvent evento) {
+
+		try {
+
+			UploadedFile x = evento.getFile();
+			// Cria um espaço temporario no servidor
+			Path t = Files.createTempFile(null, null);
+			Files.copy(x.getInputstream(), t, StandardCopyOption.REPLACE_EXISTING);
+
+			domain.setPathTemp(t.toString());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		Messages.addGlobalInfo(domain.getPathTemp());
+
+	}
 
 	public Processo getDomain() {
 		return domain;
@@ -168,9 +196,6 @@ public class ProcessoBack {
 		this.advogadoSelectList = advogadoSelectList;
 	}
 
-	public void edita(ActionEvent evt) {
-		ProcessoDao dao = new ProcessoDao();
-		dao.alterar(domain);
-	}
+	
 	
 }
