@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "processo")
@@ -38,19 +37,6 @@ public class Processo implements Serializable {
 	@ManyToOne
 	@JoinColumn(nullable=false)
 	private Cliente cliente;
-	
-	//Serve para utilizar no que irá ficar em memória, não ira para o banco de dados
-			@Transient
-			private String pathTemp;
-			
-			public String getPathTemp() {
-				return pathTemp;
-			}
-			public void setPathTemp(String pathTemp) {
-				this.pathTemp = pathTemp;
-
-			}
-
 	
 	public Integer getCd() {
 		return cd;

@@ -33,10 +33,6 @@ body {
 
 /* Sobreescrevendo estilos do primefaces */
 
-.ui-datepicker {
-    background-color: #2a2e34 !important;
-}
-
 .ui-widget-header, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-widget-content {
 	background: none !important;
 }
@@ -82,6 +78,21 @@ td.fc-day.ui-widget-content.fc-sat.fc-today.ui-state-highlight {
 	width: 31px !important;
 	padding: 4px 6px !important;
     border: none !important;
+}
+
+.ui-datepicker, .ui-selectonemenu-panel .ui-selectonemenu-list {
+	background-color: #2a2e34 !important;
+}
+
+.fc-event {
+	border-color: #aaaaaa !important;
+	background-color: #484f5a !important;
+    margin: 1px 0 !important;
+	border-radius: 0 !important;
+}
+
+.fc-toolbar .fc-right {
+	display: none;
 }
 
 a {

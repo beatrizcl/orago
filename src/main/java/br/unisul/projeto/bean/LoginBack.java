@@ -23,7 +23,7 @@ public class LoginBack {
 			advogado = dao.buscarLoginSenha(login, senha);
 			if(advogado != null){
 				SessionContext.getInstance().setAttribute("usuarioLogado", advogado);
-				return "/pages/advogado.xhtml?faces-redirect=true";
+				return "/pages/agenda.xhtml?faces-redirect=true";
 			}else{
 				FacesContext.getCurrentInstance().validationFailed();
 				return "";
