@@ -65,34 +65,27 @@ public class AdvogadoDao {
 		return novo;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Advogado> listar(Integer cd){
-		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
-		try {
-			Criteria consulta = sessao.createCriteria(Advogado.class);
-			consulta.add(Restrictions.eq("cd", cd));
-			List<Advogado> resultado = consulta.list();
-			return resultado;
-		} catch (Exception e) {
-			throw(e);
-		}finally{
-			sessao.close();
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Advogado> listarPorAdvogado(Integer cdAdvogado){
-		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
-		try {
-			Criteria consulta = sessao.createCriteria(Advogado.class);
-		//	consulta.add(Restrictions.eq("cd",cdAdvogado));
-			List<Advogado> resultado = consulta.list();
-			return resultado;
-		} catch (Exception e) {
-			throw(e);
-		}finally{
-			sessao.close();
-		}
-	}
+	public List<Advogado> listar() {
+        return listar(null);
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Advogado> listar(Integer cd){
+        Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+        try {
+            Criteria consulta = sessao.createCriteria(Advogado.class);
+            if (cd != null) {
+                consulta.add(Restrictions.eq("cd", cd));
+            }
+            List<Advogado> resultado = consulta.list();
+            return resultado;
+        } catch (Exception e) {
+            throw(e);
+        }finally{
+            sessao.close();
+        }
+    }
+
+
 
 }

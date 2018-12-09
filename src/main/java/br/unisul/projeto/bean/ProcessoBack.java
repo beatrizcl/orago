@@ -23,7 +23,6 @@ import br.unisul.projeto.dao.ProcessoDao;
 import br.unisul.projeto.domain.Advogado;
 import br.unisul.projeto.domain.Cliente;
 import br.unisul.projeto.domain.Processo;
-import br.unisul.projeto.util.SessionContext;
 
 @ManagedBean(name = "processoBack")
 @ViewScoped
@@ -95,12 +94,8 @@ public class ProcessoBack {
 	@PostConstruct
 	public void listarAdvogado(){
 		try {
-			Advogado log = (Advogado)SessionContext.getInstance().getAttribute("usuarioLogado");
-			if (log==null) {
-				return;
-			}
 			AdvogadoDao dao = new AdvogadoDao();
-			advogadoList = dao.listarPorAdvogado(log.getCd());
+			advogadoList = dao.listar();
 			advogadoSelectList = new ArrayList<SelectItem>(advogadoList.size());
 
 			for (Advogado advogado : advogadoList) {

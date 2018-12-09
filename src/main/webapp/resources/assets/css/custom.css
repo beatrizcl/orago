@@ -9,6 +9,62 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: #b8b8b8 !important;
+	background-color: #25292f;
+}
+
+/* Layout */
+.side-menu, .main {
+	height: 100%;
+	padding: 15px;
+}
+
+.side-menu {
+	width: 20%;
+}
+
+.ui-menu {
+	width: 100% !important;
+}
+
+.main {
+	width: 80%;
+	overflow: auto;
+}
+
+/* Sobreescrevendo estilos do primefaces */
+
+.ui-widget-header, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-widget-content {
+	background: none !important;
+}
+
+.ui-state-active {
+	background-color: #5655559e !important;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	background-color: #9e9e9e14 !important
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover {
+	background: none !important;
+	background-color: #ffffff5e !important;
+}
+
+.ui-widget-header, .ui-widget-content, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-widget-content a {
+	color: #e0e0e0;
+}
+
+.ui-menu .ui-menuitem-link {
+	width: 98% !important;
+}
+
+.side-menu .ui-menu, .main .ui-panel, .main table, .ui-dialog {
+	background-color: #25292fde !important;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight,
+td.fc-day.ui-widget-content.fc-sat.fc-today.ui-state-highlight {
+	color: #25292f !important;
+    background-color: #fcefa1 !important;
 }
 
 a {
@@ -19,7 +75,7 @@ a:hover {
 	color: #b6b6b6;
 }
 
-.img-grey{
+.img-grey {
 	filter: grayscale(40%);
 }
 
@@ -67,7 +123,7 @@ element.style {
 }
 
 h2 {
-    color: #444444;
+    color: #e0e0e0;
 }
 
 .square-btn-adjust {

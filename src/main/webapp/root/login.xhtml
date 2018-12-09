@@ -5,73 +5,52 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<h:head>
+	
+	<h:head>
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</f:facet>
-	<title>Login</title>
-	<ui:insert name="head" />
-</h:head>
+		<title>Login</title>
+		<ui:insert name="head" />
+	</h:head>
 
-<h:body styleClass="bg-login">
-
+	<h:body styleClass="bg-login">
 	<p:growl id="msg" />
-
 	<div class="container">
-
 		<div class="row">
-			<div
-				class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 				<div class="panel panel-default b0">
 					<div class="panel-heading heading-login">
 						<div class="row">
 							<div class="col-md-3">
-								<h:graphicImage name="img/icone-login.png" library="assets"
-									styleClass="img-responsive img-grey" />
-							</div>
-							<div class="col-md-9" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-								<h4 class="branco" style="margin-bottom: 0;">Formentin &amp; Darella </h4>
-								<h3 class="branco" style="margin-top: 0;">Advocacia</h3>
-								
-
-							</div>
-						</div>
-
-
-					</div>
-					<div class="panel-body">
-
-						<h:form id="frmLogin">
-							<br />
-							<div style="height: 31px; margin-bottom: 10px">
-								<p:inputText maxlength="20" size="20" value="#{loginBack.login}"
-									placeholder="Login" styleClass="col-md-12" />
-								</div>
-								
-								<div style="height: 31px; margin-bottom: 10px">
-								<p:password maxlength="20" size="20" value="#{loginBack.senha}"
-									placeholder="Password" styleClass="col-md-12" />
-									</div>
-								<div class="form-group">
-								<label class="checkbox-inline"> <input type="checkbox" />
-									Lembrar-me
-								</label> <span class="pull-right"> <a href="#">Recuperar
-										Senha </a>
-								</span>
-							</div>
-							<p:commandButton icon="ui-icon-unlocked" value="Entrar"
-								action="#{loginBack.doLogin}" styleClass="btn btn-success col-md-12 mb" />
-							
-							<hr />
-							
+								<h:graphicImage name="img/icone-login.png" library="assets" styleClass="img-responsive img-grey" />
+	</div>
+	<div class="col-md-9" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+		<h4 class="branco" style="margin-bottom: 0;">Formentin &amp; Darella </h4>
+		<h3 class="branco" style="margin-top: 0;">Advocacia</h3>
+		</div>
+	</div>
+</div>
+	<div class="panel-body">
+		<h:form id="frmLogin">
+		<br />
+	<div style="height: 31px; margin-bottom: 10px">
+		<p:inputText maxlength="20" size="20" value="#{loginBack.login}" placeholder="Login" styleClass="col-md-12" />
+	</div>
+		<div style="height: 31px; margin-bottom: 10px">
+			<p:password maxlength="20" size="20" value="#{loginBack.senha}" placeholder="Password" styleClass="col-md-12" />
+	</div>
+		<div class="form-group">
+			<label class="checkbox-inline"> <input type="checkbox" /> Lembrar-me </label> <span class="pull-right"> <a href="#">Recuperar Senha </a>
+		</span>
+			</div>
+			<p:commandButton icon="ui-icon-unlocked" value="Entrar" action="#{loginBack.doLogin}" styleClass="btn btn-success col-md-12 mb" />
+		<hr />
 						</h:form>
-
 					</div>
-
 				</div>
 			</div>
 		</div>

@@ -59,7 +59,7 @@ public class AdvogadoBack {
 				return;
 			}
 			AdvogadoDao dao = new AdvogadoDao();
-			advogadoList = (ArrayList<Advogado>)dao.listarPorAdvogado(log.getCd());
+			advogadoList = (ArrayList<Advogado>)dao.listar(log.getCd());
 		} catch (Exception e) {
 			Messages.addGlobalError("Erro ao listar advogados");
 			e.printStackTrace();

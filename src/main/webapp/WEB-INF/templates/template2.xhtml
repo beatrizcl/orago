@@ -4,39 +4,31 @@
 <h:head>
 	<title>Orago</title>
 	<meta charset = "utf-8"/>
-
+	<h:outputStylesheet name="css/bootstrap.css" library="assets" />
+	<h:outputStylesheet name="css/font-awesome.css" library="assets" />
+	<h:outputStylesheet name="css/custom.css" library="assets" />
 </h:head>
 
-<h:body>
-
-		<p:layout style="min-width:500px;min-height:600px;">
-				<p:growl id="messages"/>
-				<p:layoutUnit position="west" resizable="true" size="220" minSize="80" maxSize="250" style="">
-				<p:menu>
+	<h:body>
+		<div class="side-menu">
+			<p:menu>
+				<p:submenu label="Cadastros">
+					<p:menuitem value="Clientes" url="/pages/cliente.xhtml" />
+					<p:menuitem value="Advogados" url="/pages/advogado.xhtml" />
+					<p:menuitem value="Agenda" url="/pages/agenda.xhtml" />
+					<p:menuitem value="Processos/Recursos" url="/pages/processo.xhtml" />
+				</p:submenu>
 				
-					<p:submenu label="Cadastros" icon="ui-icon-plusthick">
-						<p:menuitem value="Cadastro de Clientes" url="/pages/cliente.xhtml" />
-						<p:menuitem value="Cadastro de Advogados" url="/pages/advogado.xhtml" />
-						<p:menuitem value="Cadastro de Agenda" url="/pages/agenda.xhtml" />
-						<p:menuitem value="Processos/Recursos" url="/pages/processo.xhtml" />
-					</p:submenu>
-					
-					<p:submenu>
-						<p:menuitem value="Sair do Sistema" url="/root/login.xhtml" icon="ui-icon-close" />
-						<f:facet name="options">
-							<p:commandButton type="button" value="Logout"  actionListener="#{loginBack.logout}" icon="ui-icon-extlink" />
-						</f:facet>
-					</p:submenu>
-				</p:menu>
-				</p:layoutUnit>
-			
-		<p:layoutUnit position="center">
-		<div id="navegacao">
-			<div id = "area">
-			</div>
+				<p:submenu>
+					<p:menuitem value="Sair do Sistema" url="/root/login.xhtml" />
+					<f:facet name="options">
+						<p:commandButton type="button" value="Logout"  actionListener="#{loginBack.logout}" />
+					</f:facet>
+				</p:submenu>
+			</p:menu>
+		</div>
+		<div class="main">
 			<ui:insert name="corpo" style="width:5px"/>
 		</div>
-	</p:layoutUnit>
-	</p:layout>
-</h:body>
+	</h:body>
 </html>
