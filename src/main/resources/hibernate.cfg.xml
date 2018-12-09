@@ -32,10 +32,10 @@
 		<property name="hbm2ddl.auto">validate</property>
 		
 		<!-- Mapeamento das entidades--> 
- 		<mapping class="br.unisul.projeto.domain.Administrador"/> 
  		<mapping class="br.unisul.projeto.domain.Advogado"/>
  		<mapping class="br.unisul.projeto.domain.Cliente"/>
  		<mapping class="br.unisul.projeto.domain.Processo"/>
+ 		<mapping class="br.unisul.projeto.domain.Agenda"/>
 		
 	</session-factory>
 
