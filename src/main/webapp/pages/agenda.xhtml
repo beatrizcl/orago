@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/templates/template2.xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>Agenda</title>
+</h:head>
+<ui:define name="corpo">
+
+	<h:form id="scheduleForm">
+		<p:schedule id="agendador" value="#{agendaBack.agendas}" draggable="false" view="month">
+			<p:ajax event="dateSelect" listener="#{agendaBack.novo}" oncomplete="PF('dlgAgenda').show();" update="cadAgendaForm:cadAgenda" />
+			<p:ajax event="eventSelect" listener="#{agendaBack.onEventSelect}" oncomplete="PF('dlgEdtAgenda').show();" update="edtAgendaForm:edtAgenda" />
+		</p:schedule>
+	</h:form>
+	
+	<p:dialog header="Agenda" widgetVar="dlgAgenda" modal="true" resizable="false" draggable="false" closable="true" appendTo="@(body)">
+		<h:form id="cadAgendaForm">
+			<h:panelGrid columns="2" id="cadAgenda">
+				<p:outputLabel value="Data da agenda"/>
+				<p:inputText value="#{agendaBack.agenda.dtAgenda}">
+					<f:convertDateTime locale="pt_BR"/>
+				</p:inputText>
+				
+				<p:outputLabel value="Pendência"/>
+				<p:inputText value="#{agendaBack.agenda.dsPendencia}"/>
+				
+				<p:outputLabel value="Horário"/>
+				<p:calendar id="time" value="#{agendaBack.agenda.dsHora}" pattern="HH:mm" timeOnly="true" locale="pt_BR" />
+				
+				<p:outputLabel value="Local"/>
+				<p:inputText value="#{agendaBack.agenda.dsLocal}"/>
+			</h:panelGrid>
+			
+			<br/>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" actionListener="#{agendaBack.salvar}" update="scheduleForm:agendador" oncomplete="PF('dlgAgenda').hide();"/>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+	<p:dialog header="Agenda" widgetVar="dlgEdtAgenda" modal="true" resizable="false" draggable="false" closable="true" appendTo="@(body)">
+		<h:form id="edtAgendaForm">
+			<h:panelGrid columns="2" id="edtAgenda">
+				<p:outputLabel value="Data da agenda"/>
+				<p:inputText value="#{agendaBack.agenda.dtAgenda}">
+					<f:convertDateTime locale="pt_BR"/>
+				</p:inputText>
+				
+				<p:outputLabel value="Pendência"/>
+				<p:inputText value="#{agendaBack.agenda.dsPendencia}"/>
+				
+				<p:outputLabel value="Horário"/>
+				<p:calendar id="time" value="#{agendaBack.agenda.dsHora}" pattern="HH:mm" timeOnly="true" locale="pt_BR" />
+				
+				<p:outputLabel value="Local"/>
+				<p:inputText value="#{agendaBack.agenda.dsLocal}"/>
+			</h:panelGrid>
+			
+			<br/>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" actionListener="#{agendaBack.salvar}" update="scheduleForm:agendador" oncomplete="PF('dlgEdtAgenda').hide();"/>
+				<p:commandButton value="Remover" actionListener="#{agendaBack.remover}" update="scheduleForm:agendador" oncomplete="PF('dlgEdtAgenda').hide();"/>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+</ui:define>
+</ui:composition>
