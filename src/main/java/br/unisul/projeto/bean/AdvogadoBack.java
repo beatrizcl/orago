@@ -12,7 +12,6 @@ import org.omnifaces.util.Messages;
 
 import br.unisul.projeto.dao.AdvogadoDao;
 import br.unisul.projeto.domain.Advogado;
-import br.unisul.projeto.util.SessionContext;
 
 @ManagedBean(name = "advogadoBack")
 @ViewScoped
@@ -54,12 +53,8 @@ public class AdvogadoBack {
 	@PostConstruct
 	public void listar(){
 		try{
-			Advogado log = (Advogado)SessionContext.getInstance().getAttribute("usuarioLogado");
-			if (log==null) {
-				return;
-			}
 			AdvogadoDao dao = new AdvogadoDao();
-			advogadoList = (ArrayList<Advogado>)dao.listar(log.getCd());
+			advogadoList = (ArrayList<Advogado>)dao.listar();
 		} catch (Exception e) {
 			Messages.addGlobalError("Erro ao listar advogados");
 			e.printStackTrace();

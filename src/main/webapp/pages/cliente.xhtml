@@ -45,9 +45,11 @@
 					<p:outputLabel for="txtEmail" value="Email: "/>
 					<p:inputText id="txtEmail" value="#{clienteBack.domain.emailcliente}" required="true" requiredMessage="Email obrigatório"/>
 					
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="2">
 					<p:commandButton value="Cadastrar" actionListener="#{clienteBack.cadastra}" update="frmTblCliente:tblCliente" onclick="PF('popupclientecadastra').hide();" />
 					<p:commandButton value="Cancelar" type="button" onclick="PF('popupclientecadastra').hide();" />
-			
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>
@@ -55,6 +57,7 @@
 		<p:dialog header="Editar cliente" widgetVar="popupclienteedita" modal="true" closable="no" draggable="no" appendTo="@(body)">
 			<h:form id="frmEdita">
 				<h:panelGrid columns="2" id="cad">
+				
 				
 					<p:outputLabel for="txtNome" value="Nome: "/>
 					<p:inputText id="txtNome" value="#{clienteBack.domain.nmcliente}" required="true" requiredMessage="Nome obrigatório"/>
@@ -81,10 +84,11 @@
 					<p:outputLabel for="txtEmail" value="Email: "/>
 					<p:inputText id="txtEmail" value="#{clienteBack.domain.emailcliente}" required="true" requiredMessage="Email obrigatório"/>
 					
-					
+				</h:panelGrid>
+				<br/>
+				<h:panelGrid columns="2">
 					<p:commandButton value="Salvar" actionListener="#{clienteBack.edita}" update="msg frmTblCliente" onclick="PF('popupclienteedita').hide();" />
 					<p:commandButton value="Cancelar" type="button" onclick="PF('popupclienteedita').hide();" />
-			
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>
@@ -93,6 +97,10 @@
 	<br/>
 	<h:form id="frmTblCliente">
 		<p:dataTable id="tblCliente" var="cli" value="#{clienteBack.clienteList}" emptyMessage="Não há dados!" reflow="true" >
+			
+			<p:column headerText="Código" sortBy="#{cli.cd}">
+                <h:outputText value="#{cli.cd}" />
+            </p:column>
 			
 			<p:column headerText="Nome" sortBy="#{cli.nmcliente}">
         		<h:outputText value="#{cli.nmcliente}" />

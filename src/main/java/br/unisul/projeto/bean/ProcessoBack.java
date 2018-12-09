@@ -42,7 +42,7 @@ public class ProcessoBack {
 
 		Path origem = Paths.get(domain.getPathTemp());
 		Path destino = Paths.get("C:/Users/ART3MIS/Documents/ProjetoAdvocacia/evidencias/"
-				+ userImg.getCd() + ".png");
+				+ userImg.getNrprocesso() + ".png");
 		try {
 			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
 		} catch (Exception e) {

@@ -17,13 +17,13 @@
 	
 		<p:dialog header="Cadastra novo processo/recurso" widgetVar="popupcadprocessos" modal="true" closable="no" draggable="no" appendTo="@(body)">
 			<h:form id="frmCadastro" style="height: 300px;width: 600px;">
-				<h:panelGrid columns="1" id="cad">
+				<h:panelGrid columns="2" id="cad">
 					
 					<p:outputLabel for="txtProcesso" value="Número do Processo: "/>
-					<p:inputText id="txtProcesso" value="#{processoBack.domain.nrprocesso}" required="true" requiredMessage="Processo obrigatório"/>
+					<p:inputMask mask="999999" id="txtProcesso" value="#{processoBack.domain.nrprocesso}" disable="true"/>
 				
 					<p:outputLabel for="txtProcesso" value="Descrição: "/>
-   					 <p:inputTextarea rows="5" cols="30"  maxlength="4000"  autoResize="false" style="height: 100px;width: 353px;" value="#{processoBack.domain.descprocesso}"  />
+   					<p:inputTextarea rows="5" cols="30"  maxlength="4000"  autoResize="false" style="height: 100px;width: 353px;" value="#{processoBack.domain.descprocesso}"  />
 
 					<p:outputLabel for="area" value="Area:" />
         			<p:selectOneMenu id="area" value="#{processoBack.domain.area}" style="width:125px">
@@ -46,7 +46,11 @@
      			   <p:outputLabel  value="Imagem" />
 					<p:fileUpload auto="true" id="fileUp" mode="advanced" fileUploadListener="#{processoBack.upload}"  />
      			   
-					<p:commandButton value="Cadastrar" actionListener="#{processoBack.cadastra}"  update="msg frmTblProcesso" onclick="PF('popupcadprocessos').hide();" />
+					
+				</h:panelGrid>
+				<br/>
+                <h:panelGrid columns="2">
+                	<p:commandButton value="Cadastrar" actionListener="#{processoBack.cadastra}"  update="msg frmTblProcesso" onclick="PF('popupcadprocessos').hide();" />
 					<p:commandButton value="Cancelar" type="button" onclick="PF('popupcadprocessos').hide();" />
 				</h:panelGrid>
 			</h:form>
@@ -54,34 +58,35 @@
 	</p:panel>
 	
 	<p:dialog header="Editar novo processo/recurso" widgetVar="popupedtprocessos" modal="true" closable="no" draggable="no" appendTo="@(body)">
-			<h:form id="frmEdtprocesso" style="height: 300px;width: 300px;">
-			<h:panelGrid columns="1" id="cadE">
-			<p:outputLabel for="txtCd" value="Código: "/>
-					<p:inputText id="txtCd" value="#{processoBack.domain.cd}" disabled="true" />
-				
-					<p:outputLabel for="txtProcesso" value="Processo: "/>
-					<p:inputText id="txtProcesso" value="#{processoBack.domain.nrprocesso}" disable="true"/>
-				
-					<p:outputLabel for="advogado" value="Advogado:" />
-        			<p:selectOneMenu id="advogado" value="#{processoBack.domain.advogado}" style="width:125px">
-			            <f:selectItem itemLabel="Selecionar" itemValue="" />
-			            <f:selectItems value="#{processoBack.advogadoSelectList}" />
-     			  	</p:selectOneMenu>
-				
-					<p:outputLabel for="txtProcesso" value="Descrição: "/>
-   					 <p:inputTextarea rows="5" cols="30"  maxlength="4000"  autoResize="false" style="height: 100px;width: 353px;" value="#{processoBack.domain.descprocesso}"  />
-					
-					
-					<p:commandButton value="Salvar" actionListener="#{processoBack.edita}" update="msg frmTblProcesso" onclick="PF('popupedtprocessos').hide();" />
-					<p:commandButton value="Cancelar" type="button" onclick="PF('popupedtprocessos').hide();" />
-				</h:panelGrid>
-			</h:form>
-		</p:dialog>
-	<br/>
+        <h:form id="frmEdtprocesso" style="height: 300px; width: 600px;">
+            <h:panelGrid columns="2" id="cadE">
+
+                <p:outputLabel for="txtProcesso" value="Número do Processo: "/>
+                <p:inputMask mask="999999" id="txtProcesso" value="#{processoBack.domain.nrprocesso}" disable="true"/>
+
+                <p:outputLabel for="txtProcesso" value="Descrição: "/>
+                    <p:inputTextarea rows="5" cols="30"  maxlength="4000"  autoResize="false" style="height: 100px;width: 353px;" value="#{processoBack.domain.descprocesso}"  />
+
+                <p:outputLabel for="advogado" value="Advogado:" />
+                    <p:selectOneMenu id="advogado" value="#{processoBack.domain.advogado}" style="width:125px" converter="advogadoConverter">
+                    <f:selectItems value="#{processoBack.advogadoList}" var="advogado" itemValue="#{advogado}" itemLabel="#{advogado.nmadvogado}" />
+                </p:selectOneMenu>
+
+            </h:panelGrid>
+
+            <br/>
+            <h:panelGrid columns="2">
+                <p:commandButton value="Salvar" actionListener="#{processoBack.edita}" update="msg frmTblProcesso" onclick="PF('popupedtprocessos').hide();" />
+                <p:commandButton value="Cancelar" type="button" onclick="PF('popupedtprocessos').hide();" />
+            </h:panelGrid>
+        </h:form>
+    </p:dialog>
+
+    <br />
 	<h:form id="frmTblProcesso">
 		<p:dataTable id="tblProcesso" var="processo" value="#{processoBack.processoList}" emptyMessage="Não há dados!" reflow="true" >
 		
-			<p:column headerText="Id" sortBy="#{processo.cd}">
+			<p:column headerText="Código" sortBy="#{processo.cd}">
         		<h:outputText value="#{processo.cd}" />
         	</p:column>
         	
